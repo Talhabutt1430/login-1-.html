@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #2e3440; /* Onyx */
+            color: #eceff4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            display: none;
+            background-color: #4c566a; /* Rhino */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            width: 320px;
+        }
+
+        /* Display the checked section */
+        #login:checked ~ .login-container,
+        #forgot:checked ~ .forgot-container,
+        #signup:checked ~ .signup-container,
+        #about:checked ~ .about-container {
+            display: block;
+            animation: fadeInUp 0.6s ease, bounce 1s infinite alternate;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-5px);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d8dee9;
+            color: #2e3440;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .remember-forgot a {
+            color: #88c0d0; /* Light Cyan */
+            text-decoration: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5e81ac; /* Light Rhino */
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #81a1c1;
+        }
+
+        .register-link, .back-link, .about-link {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .register-link a, .back-link a, .about-link a {
+            color: #88c0d0;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .about-container p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Hide the radio inputs */
+        input[type="radio"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hidden radio buttons for toggling between forms -->
+    <input type="radio" name="tab" id="login" checked>
+    <input type="radio" name="tab" id="forgot">
+    <input type="radio" name="tab" id="signup">
+    <input type="radio" name="tab" id="about">
+
+    <!-- Login Form -->
+    <div class="login-container container">
+        <form>
+            <h2>Login</h2>
+            <div class="input-box">
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Enter your password" required>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <label for="forgot">Forgot password?</label>
+            </div>
+            
+            <button onclick="location.href='Home page 1 change.html'" type="submit">Login Now</button>
+            <div class="register-link">
+                Not a member? <label for="signup">Sign up Now</label>
+            </div>
+            <div class="about-link">
+                <label for="about">About Us</label>
+            </div>
+        </form>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div class="forgot-container container">
+        <form>
+            <h2>Forgot Password</h2>
+            <div class="input-box">
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+            <button type="submit">Submit</button>
+            <div class="back-link">
+                <label for="login">Back to Login</label>
+            </div>
+        </form>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="signup-container container">
+        <form>
+            <h2>Sign Up</h2>
+            <div class="input-box">
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Enter your age" required>
+            </div>
+            <div class="input-box">
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+            <div class="back-link">
+                <label for="login">Back to Login</label>
+            </div>
+        </form>
+    </div>
+
+    <!-- About Us Page -->
+    <div class="about-container container">
+        <h2>About Us</h2>
+        <p>This website is a collaborative project created by Irfan Ali, Wahab Ali, Talha Waseem, and Aftab Randhawa. 
+        We are students at the University of Sialkot, working on this platform as part of our ICT project.</p>
+        <p>Our project focuses on creating a website for a clothing brand, with the goal of delivering a 
+        seamless user experience and showcasing modern, high-quality designs. We aim to develop this 
+        project further and incorporate innovative features to cater to the fashion industry.</p>
+        <div class="back-link">
+            <label for="login">Back to Login</label>
+        </div>
+    </div>
+
+</body>
+</html>
